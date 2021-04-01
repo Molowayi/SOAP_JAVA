@@ -1,4 +1,4 @@
-package be.molowayi.beerSoapService;
+package be.molowayi.beerSoapService.drafts;
 
 /**
  * Created by JLVH on 27-03-21.
