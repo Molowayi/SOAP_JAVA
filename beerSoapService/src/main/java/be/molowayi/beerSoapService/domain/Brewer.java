@@ -1,160 +1,90 @@
 package be.molowayi.beerSoapService.domain;
 
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.*;
 
+import javax.persistence.*;
 
-/**
- * <p>Java class for brewer complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="brewer">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="address" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="turnover" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="zipCode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- *
- *
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "brewer", propOrder = {
-        "address",
-        "city",
-        "name",
-        "turnover",
-        "zipCode"
-})
-public class Brewer {
+@Entity
+@Table(name = "Brewers")
+public class Brewer implements Serializable {
+    @Id
+    @Column(name = "Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    protected String address;
-    protected String city;
-    protected String name;
-    protected int turnover;
-    protected String zipCode;
+    @Column(name = "Name")
+    private String name;
 
-    /**
-     * Gets the value of the address property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
+    @Column(name = "Address")
+    private String address;
+
+    @Column(name = "ZipCode")
+    private String zipCode;
+
+    @Column(name = "City")
+    private String city;
+
+    @Column(name = "Turnover")
+    private int turnover;
+
+    @OneToMany(mappedBy = "brewer")
+    private Set<Beer> beers = new HashSet<Beer>();
+
+    public Set<Beer> getBeers() {
+        return beers;
+    }
+
+    public void setBeers(Set<Beer> beers) {
+        this.beers = beers;
+    }
+
     public String getAddress() {
         return address;
     }
 
-    /**
-     * Sets the value of the address property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setAddress(String value) {
-        this.address = value;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    /**
-     * Gets the value of the city property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
     public String getCity() {
         return city;
     }
 
-    /**
-     * Sets the value of the city property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setCity(String value) {
-        this.city = value;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    /**
-     * Gets the value of the name property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
-    /**
-     * Sets the value of the name property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setName(String value) {
-        this.name = value;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Gets the value of the turnover property.
-     *
-     */
     public int getTurnover() {
         return turnover;
     }
 
-    /**
-     * Sets the value of the turnover property.
-     *
-     */
-    public void setTurnover(int value) {
-        this.turnover = value;
+    public void setTurnover(int turnover) {
+        this.turnover = turnover;
     }
 
-    /**
-     * Gets the value of the zipCode property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
     public String getZipCode() {
         return zipCode;
     }
 
-    /**
-     * Sets the value of the zipCode property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setZipCode(String value) {
-        this.zipCode = value;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
+    public String toString() {
+        return name;
+    }
 }

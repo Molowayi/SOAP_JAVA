@@ -1,192 +1,114 @@
 package be.molowayi.beerSoapService.domain;
 
+import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Beers")
+public class Beer implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "Id")
+    private int id;
 
-/**
- * <p>Java class for beer complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="beer">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="alcohol" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="brewer" type="{http://web.beers.spring.noelvaes.eu/}brewer" minOccurs="0"/>
- *         &lt;element name="category" type="{http://web.beers.spring.noelvaes.eu/}category" minOccurs="0"/>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="price" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="stock" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- *
- *
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "beer", propOrder = {
-        "alcohol",
-        "brewer",
-        "category",
-        "id",
-        "name",
-        "price",
-        "stock"
-})
-@Entity()
-public class Beer {
+    @Column(name = "Name")
+    private String name;
 
-    protected float alcohol;
-    protected Brewer brewer;
-    protected Category category;
-    protected int id;
-    protected String name;
-    protected float price;
-    protected int stock;
+    @Column(name = "Price")
+    private float price;
 
-    /**
-     * Gets the value of the alcohol property.
-     *
-     */
-    public float getAlcohol() {
-        return alcohol;
-    }
+    @Column(name = "Stock")
+    private int stock;
 
-    /**
-     * Sets the value of the alcohol property.
-     *
-     */
-    public void setAlcohol(float value) {
-        this.alcohol = value;
-    }
+    @Column(name = "Alcohol")
+    private float alcohol;
 
-    /**
-     * Gets the value of the brewer property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Brewer }
-     *
-     */
-    public Brewer getBrewer() {
-        return brewer;
-    }
+    @Version
+    @Column(name= "Version")
+    private int version;
 
-    /**
-     * Sets the value of the brewer property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link Brewer }
-     *
-     */
-    public void setBrewer(Brewer value) {
-        this.brewer = value;
-    }
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "Image")
+    @Lob
+    private byte[] image;
 
-    /**
-     * Gets the value of the category property.
-     *
-     * @return
-     *     possible object is
-     *     {@link Category }
-     *
-     */
+    @ManyToOne
+    @JoinColumn(name = "BrewerId")
+    private Brewer brewer;
+
+    @ManyToOne
+    @JoinColumn(name = "CategoryId")
+    private Category category;
+
     public Category getCategory() {
         return category;
     }
 
-    /**
-     * Sets the value of the category property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link Category }
-     *
-     */
-    public void setCategory(Category value) {
-        this.category = value;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    /**
-     * Gets the value of the id property.
-     *
-     */
+    public Brewer getBrewer() {
+        return brewer;
+    }
+
+    public void setBrewer(Brewer brewer) {
+        this.brewer = brewer;
+    }
+
+    public float getAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(float alcohol) {
+        this.alcohol = alcohol;
+    }
+
     public int getId() {
         return id;
     }
 
-    /**
-     * Sets the value of the id property.
-     *
-     */
-    public void setId(int value) {
-        this.id = value;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    /**
-     * Gets the value of the name property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setName(String value) {
-        this.name = value;
-    }
-
-    /**
-     * Gets the value of the price property.
-     *
-     */
     public float getPrice() {
         return price;
     }
 
-    /**
-     * Sets the value of the price property.
-     *
-     */
-    public void setPrice(float value) {
-        this.price = value;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    /**
-     * Gets the value of the stock property.
-     *
-     */
     public int getStock() {
         return stock;
     }
 
-    /**
-     * Sets the value of the stock property.
-     *
-     */
-    public void setStock(int value) {
-        this.stock = value;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String toString() {
+        StringBuilder b = new StringBuilder();
+        b.append(name).append(" ").append(alcohol).append(" ");
+        b.append(stock).append(" ").append(price).append(" ");
+        return b.toString();
+    }
 }

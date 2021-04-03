@@ -1,60 +1,45 @@
 package be.molowayi.beerSoapService.domain;
 
+import java.io.Serializable;
+import java.util.*;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import javax.persistence.*;
 
+@Entity
+@Table(name="Categories")
+public class Category implements Serializable{
+    @Id
+    @Column(name="Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-/**
- * <p>Java class for category complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="category">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- *
- *
- */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "category", propOrder = {
-        "name"
-})
-public class Category {
+    @Column(name="Category")
+    private String name;
 
-    protected String name;
+    @OneToMany(mappedBy="category")
+    private Set<Beer> beers = new HashSet<Beer>();
 
-    /**
-     * Gets the value of the name property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
+    public Set<Beer> getBeers() {
+        return beers;
+    }
+
+    public void setBeers(Set<Beer> beers) {
+        this.beers = beers;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
 
-    /**
-     * Sets the value of the name property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setName(String value) {
-        this.name = value;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public String toString() {
+        return name;
+    }
 }

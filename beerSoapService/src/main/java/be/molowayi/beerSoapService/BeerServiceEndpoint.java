@@ -16,7 +16,7 @@ public class BeerServiceEndpoint {
     @Autowired
     private BeerRepository beerRepository;
 
-    public void orderBeer(int id, int number) throws InvalidBeerException, InvaldNumberException {
+    public void orderBeer(int id, int number) throws InvalidBeerException, InvalidNumberException {
         beerService.orderBeer(id, number);
 
     }
