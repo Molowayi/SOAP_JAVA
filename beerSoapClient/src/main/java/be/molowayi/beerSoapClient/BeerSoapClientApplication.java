@@ -1,5 +1,6 @@
 package be.molowayi.beerSoapClient;
 
+import be.molowayi.beerSoapClient.client.BeerServiceEndpoint;
 import be.molowayi.spring.hello.client.HelloServiceEndpoint;
 import javafx.scene.Parent;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +26,14 @@ public class BeerSoapClientApplication {
 	@Bean
 	public JaxWsPortProxyFactoryBean hello() throws MalformedURLException {
 		JaxWsPortProxyFactoryBean proxy = new JaxWsPortProxyFactoryBean();
-		proxy.setServiceInterface(HelloServiceEndpoint.class);
-		proxy.setWsdlDocumentUrl(new URL("http://localhost:8079/HelloService?wsdl"));
+		proxy.setServiceInterface(BeerServiceEndpoint.class);
+		proxy.setWsdlDocumentUrl(new URL("http://localhost:8079/BeerService?wsdl"));
 		proxy.setNamespaceUri("http://beerSoapService.molowayi.be/");
-		proxy.setServiceName("HelloService");
-		proxy.setPortName("HelloServiceEndpointPort");
+		proxy.setServiceName("BeerService");
+		proxy.setPortName("BeerServiceEndpointPort");
 		return proxy;
 
 	}
 }
+
+// wsimport -s src\main\java -p be.molowayi.beerSoapClient.client http:\\localhost:8079/BeerService?wsdl
