@@ -22,6 +22,6 @@ public class BeerServiceEndpoint {
     }
 
     public Beer getBeerById(int id){
-        return beerRepository.findOne(id);
+        return beerRepository.findById(id);
     }
 }
