@@ -1,5 +1,6 @@
 package be.molowayi.beerSoapClient;
 
+import be.molowayi.beerSoapClient.client.Beer;
 import be.molowayi.beerSoapClient.client.BeerServiceEndpoint;
 import be.molowayi.spring.hello.client.HelloServiceEndpoint;
 import javafx.scene.Parent;
@@ -18,8 +19,9 @@ public class BeerSoapClientApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = 	SpringApplication.run(BeerSoapClientApplication.class, args);
 
-		HelloServiceEndpoint helloService = ctx.getBean("hello", HelloServiceEndpoint.class );
-		String response = helloService.sayHello("World");
+
+	BeerServiceEndpoint helloService = ctx.getBean("hello", BeerServiceEndpoint.class );
+		Beer response = helloService.getBeerById(2);
 		System.out.println(response);
 	}
 
