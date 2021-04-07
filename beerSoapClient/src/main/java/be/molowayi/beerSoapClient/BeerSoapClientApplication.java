@@ -2,6 +2,8 @@ package be.molowayi.beerSoapClient;
 
 import be.molowayi.beerSoapClient.client.Beer;
 import be.molowayi.beerSoapClient.client.BeerServiceEndpoint;
+import be.molowayi.beerSoapClient.client.InvalidBeerException_Exception;
+import be.molowayi.beerSoapClient.client.InvalidNumberException_Exception;
 import be.molowayi.spring.hello.client.HelloServiceEndpoint;
 import javafx.scene.Parent;
 import org.springframework.boot.SpringApplication;
@@ -21,8 +23,15 @@ public class BeerSoapClientApplication {
 
 
 	BeerServiceEndpoint helloService = ctx.getBean("hello", BeerServiceEndpoint.class );
-		Beer response = helloService.getBeerById(2);
+		Beer response = helloService.getBeerById(22);
 		System.out.println(response);
+		try {
+			helloService.orderBeer(5,5);
+		} catch (InvalidBeerException_Exception e) {
+			e.printStackTrace();
+		} catch (InvalidNumberException_Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Bean

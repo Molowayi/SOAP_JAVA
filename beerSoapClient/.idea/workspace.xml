@@ -20,15 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="950c5cec-5c61-4e79-8237-d32e0499c05f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/molowayi/beerSoapClient/BeerSoapClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/molowayi/beerSoapClient/BeerSoapClientApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../beerSoapService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../beerSoapService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../beerSoapService/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../beerSoapService/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,24 +122,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1548" height="575" key="GridCell.Tab.0.bottom" timestamp="1617666574213">
-      <screen x="0" y="23" width="1829" height="1177" />
+    <state width="1548" height="575" key="GridCell.Tab.0.bottom" timestamp="1617793854350">
+      <screen x="0" y="23" width="1833" height="1177" />
     </state>
     <state width="1548" height="575" key="GridCell.Tab.0.bottom/0.23.1829.1177@0.23.1829.1177" timestamp="1617666574213" />
-    <state width="1548" height="575" key="GridCell.Tab.0.center" timestamp="1617666574212">
-      <screen x="0" y="23" width="1829" height="1177" />
+    <state width="1548" height="575" key="GridCell.Tab.0.bottom/0.23.1833.1177@0.23.1833.1177" timestamp="1617793854350" />
+    <state width="1548" height="575" key="GridCell.Tab.0.center" timestamp="1617793854349">
+      <screen x="0" y="23" width="1833" height="1177" />
     </state>
     <state width="1548" height="575" key="GridCell.Tab.0.center/0.23.1829.1177@0.23.1829.1177" timestamp="1617666574212" />
-    <state width="1548" height="575" key="GridCell.Tab.0.left" timestamp="1617666574212">
-      <screen x="0" y="23" width="1829" height="1177" />
+    <state width="1548" height="575" key="GridCell.Tab.0.center/0.23.1833.1177@0.23.1833.1177" timestamp="1617793854349" />
+    <state width="1548" height="575" key="GridCell.Tab.0.left" timestamp="1617793854348">
+      <screen x="0" y="23" width="1833" height="1177" />
     </state>
     <state width="1548" height="575" key="GridCell.Tab.0.left/0.23.1829.1177@0.23.1829.1177" timestamp="1617666574212" />
-    <state width="1548" height="575" key="GridCell.Tab.0.right" timestamp="1617666574212">
-      <screen x="0" y="23" width="1829" height="1177" />
+    <state width="1548" height="575" key="GridCell.Tab.0.left/0.23.1833.1177@0.23.1833.1177" timestamp="1617793854348" />
+    <state width="1548" height="575" key="GridCell.Tab.0.right" timestamp="1617793854349">
+      <screen x="0" y="23" width="1833" height="1177" />
     </state>
     <state width="1548" height="575" key="GridCell.Tab.0.right/0.23.1829.1177@0.23.1829.1177" timestamp="1617666574212" />
+    <state width="1548" height="575" key="GridCell.Tab.0.right/0.23.1833.1177@0.23.1833.1177" timestamp="1617793854349" />
     <state x="805" y="210" key="SettingsEditor" timestamp="1617662097459">
       <screen x="0" y="23" width="1829" height="1177" />
     </state>
